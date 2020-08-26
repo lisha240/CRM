@@ -15,6 +15,7 @@ import { LoginAuthService} from './login-auth.service';
 import { from } from 'rxjs';
 import { importExpr } from '@angular/compiler/src/output/output_ast';
 import { AdmindashboardComponent } from './admindashboard/admindashboard.component';
+import { TeamComponent } from './team/team.component';
 
 const appRoutes: Routes = []
 
@@ -25,7 +26,8 @@ const appRoutes: Routes = []
     UserdashboardComponent,
     HomeComponent,
     LoginComponent,
-    AdmindashboardComponent
+    AdmindashboardComponent,
+    TeamComponent
   ],
   imports: [
     BrowserModule,

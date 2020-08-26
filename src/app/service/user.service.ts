@@ -3,6 +3,7 @@ import { HttpClient , HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs/internal/Observable';
 import { ApiResponse2 } from './api.response2';
 import {ApiResponse} from "../service/api.response";
+import { environment } from 'src/environments/environment';
 
 const httpOptions = {
 headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -19,19 +20,24 @@ constructor(private http: HttpClient) {
   saveUser(user:any): Observable<ApiResponse> {
     return this.http.post<ApiResponse>("http://localhost:8086/registration", user, httpOptions);
   }
-
-loginUser(user:any): Observable<any>{
-const headers = new HttpHeaders({ 'Access-Control-Request-Headers': "Content-Type", 'Content-Type': 'application/json'});
-return  this.http.post("http://localhost:8086/login", user , {headers: headers});
+  
+  loginUser(user:any): Observable<ApiResponse2>{
+   return  this.http.post<ApiResponse2>("http://localhost:8086/login", user , httpOptions);
 }
 
-getAllUsers(token:any): Observable<any>{
-const headers = new HttpHeaders({'Authorization': 'Bearer' +token});
-return  this.http.get("http://localhost:8086/users",  {headers: headers});
+getAllUsers(token:any): Observable<ApiResponse2>{
+return  this.http.get<ApiResponse2>("http://localhost:8086/users", httpOptions);
 }
 
 getUser(token:any): Observable<any>{
-const headers = new HttpHeaders({'Authorization': 'Bearer' +token});
-return  this.http.get("http://localhost:8086/getuser",  {headers: headers});
+  return this.http.get<ApiResponse2>("http://localhost:8086/getuser", httpOptions);
 }
+
+
+saveTeam(team:any): Observable<ApiResponse> {
+  return this.http.post<ApiResponse>("http://localhost:8086/addteam", team, httpOptions);
+}
+
+
+
 }

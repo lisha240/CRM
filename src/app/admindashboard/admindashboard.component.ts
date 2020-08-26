@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginAuthService} from '../login-auth.service';
 import {UserService} from '../service/user.service';
+import { Router} from '@angular/router';
 
 
 @Component({
@@ -11,8 +12,9 @@ import {UserService} from '../service/user.service';
 export class AdmindashboardComponent implements OnInit {
  public loginuser: any= {};
  public users: any= [];
+ 
 
-  constructor(private authService : LoginAuthService, private userService: UserService) {
+  constructor(private authService : LoginAuthService, private userService: UserService, private router:Router) {
     this.authService.isLoggedIn();
     this.loginuser = JSON.parse(localStorage.getItem('currentUser'));
    }
@@ -24,4 +26,5 @@ export class AdmindashboardComponent implements OnInit {
         this.users=users;
       })
     }
+
 }

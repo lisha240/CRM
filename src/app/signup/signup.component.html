@@ -1,18 +1,24 @@
-<form #userForm="ngForm">
+        <form #userForm="ngForm">
 
+        
+       <div class="form-group">
+       <label for="firstname">FirstName</label>
+       <input type="text" class="form-control" id="firstname" [(ngModel)]="user.firstname" name="firstname">
+       </div>
+       
+       <div class="form-group">
+        <label for="lastname">LastName</label>
+        <input type="text" class="form-control" id="lastname" [(ngModel)]="user.lastname" name="lastname">
+        </div>
+      
         <div class="form-group">
         <label for="email">Email</label>
         <input type="text" class="form-control" id="email" [(ngModel)]="user.email" name="email">
         </div>
 
         <div class="form-group">
-        <label for="firstname">FirstName</label>
-        <input type="text" class="form-control" id="firstname" [(ngModel)]="user.firstname" name="firstname">
-        </div>
-
-        <div class="form-group">
-        <label for="lastname">LastName</label>
-        <input type="text" class="form-control" id="lastname" [(ngModel)]="user.lastname" name="lastname">
+        <label for="username">UserName</label>
+        <input type="text" class="form-control" id="username" [(ngModel)]="user.username" name="username">
         </div>
 
         <div class="form-group">
@@ -29,17 +35,14 @@
         <label for="role">Role</label>
         <select class="form-control" id="role" [(ngModel)]="user.role" name="role">
         <option value="">Select Role</option>
-        <option value="ADMIN">ADMIN</option>
-        <option value="USER">USER</option>
-        <option value="MANAGER">MANAGER</option>
+        <option value="ROLE_USER">ROLE_USER</option>
+        <option value="ROLE_PROJECT_MANAGER">ROLE_PROJECT_MANAGER</option>
+        <option value="ROLE_DEVELOPER">ROLE_DEVELOPER</option>
+        <option value="ROLE_TESTER">ROLE_TESTER</option>
+        <option value="ROLE_SCRUMMASTER">ROLE_SCRUMMASTER</option>
         </select>
         </div>
-
-        <div class="form-group">
-        <label for="username">UserName</label>
-        <input type="text" class="form-control" id="username" [(ngModel)]="user.username" name="username">
-        </div>
-
+   
         <div class="form-group">
         <button type="button" class="btn btn-primary" (click)="saveUser(user, userForm)">Submit</button>
         </div>

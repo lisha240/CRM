@@ -1,0 +1,15 @@
+<form #userForm="ngForm">
+
+     
+    <div class="form-group">
+    <label for="teamname">TeamName</label>
+    <input type="text" class="form-control" id="teamname" [(ngModel)]="user.teamname" name="teamname">
+    </div>
+    
+  <select>
+      <option *ngFor='let user of users' value="user.firstname">
+          {{user.username}}
+      </option>
+  </select>
+   
+</form>

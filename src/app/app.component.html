@@ -15,10 +15,7 @@
                 [routerLinkActiveOptions]="{exact: true}">
                 <a routerLink="/">Home</a>
             </li>
-            <li role="presentation"
-                routerLinkActive="active" *ngIf="!currentstatus.status">
-                <a routerLink="/signup">SignUp</a>
-            </li>
+      
             <li role="presentation"
                 routerLinkActive="active" *ngIf="!currentstatus.status" >
                 <a routerLink="/login">LogIn</a>
